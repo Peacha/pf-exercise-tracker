@@ -1,0 +1,33 @@
+{
+  "name": "pf-exercise-tracker",
+  "version": "1.0.0",
+  "description": "FCC API & Microservice challenge to build an exercise tracking app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Peacha/pf-exercise-tracker.git"
+  },
+  "keywords": [
+    "exercise",
+    "tracker",
+    "node",
+    "express",
+    "mongodb",
+    "mongoose",
+    "freecodecamp"
+  ],
+  "author": "Paul Finegan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Peacha/pf-exercise-tracker/issues"
+  },
+  "homepage": "https://github.com/Peacha/pf-exercise-tracker#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.5.8",
+    "mongoose": "^5.9.16"
+  }
+}
