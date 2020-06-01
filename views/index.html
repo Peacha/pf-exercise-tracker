@@ -1,0 +1,60 @@
+<HTML>
+	<HEAD>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	    <title>Exercise Tracker</title>
+	    <script src="https://kit.fontawesome.com/a8a2a9bcbd.js" crossorigin="anonymous"></script>
+	    <link rel="stylesheet" type="text/css" href="/styles.css">
+	</HEAD>
+	<BODY>
+		<div id="app-container">
+			<h1>Exercise Tracker</h1>
+			<form class="input-form" id="create-user" method="POST" action="http://localhost:3000/api/exercise/new-user">
+				<h3>Create A User ID</h3>
+				<div id="form-labels">
+					<label for="username" id="usr-label">Username:</label>
+				</div>
+				<div id="form-inputs">
+					<input id="usr" name="username" type="text" placeholder="user name" required>
+				</div>
+				<input id="submit" type="submit" value="CREATE">
+			</form>
+			<form class="input-form" id="add" method="POST" action="http://localhost:3000/api/exercise/add">
+				<h3>Add An Exercise</h3>
+				<div id="form-labels">
+					<label for="userId" id="usr-label">User ID:</label>
+				</div>
+				<div id="form-inputs">
+					<input id="uid" name="userId" type="text" placeholder="user ID (required)" required>
+				</div>
+				<div id="form-labels">
+					<label for="description" id="usr-label">Description:</label>
+				</div>
+				<div id="form-inputs">
+					<input id="description" name="description" type="text" placeholder="description (required)" required>
+				</div>
+				<div id="form-labels">
+					<label for="duration" id="usr-label">Exercise Duration:</label>
+				</div>
+				<div id="form-inputs">
+					<input id="duration" name="duration" type="text" placeholder="duration (required)" required>
+				</div>
+				<div id="form-labels">
+					<label for="date" id="usr-label">Date:</label>
+				</div>
+				<div id="form-inputs">
+					<input id="date" name="date" type="text" placeholder="date (YYYY-MM-DD)" required>
+				</div>
+				<input id="submit" type="submit" value="ADD">
+			</form>
+			<div id="contact">
+				<p>Presented by paul.</p>
+				<a href="https://www.freecodecamp.org/pauliefin" class="link-container"><i class="fab fa-free-code-camp"></i></a>
+				<a href="https://codepen.io/peacha" class="link-container"><i class="fab fa-codepen"></i></a>
+				<a href="https://github.com/Peacha" class="link-container"><i class="fab fa-github"></i></a>
+				<a href="https://twitter.com/thepeacha" class="link-container"><i class="fab fa-twitter"></i></a>
+			</div>
+		</div>
+	</BODY>
+</HTML>
