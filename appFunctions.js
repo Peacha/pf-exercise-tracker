@@ -81,6 +81,7 @@ const findExercise = (userID,limit,from,to,done)=>{
 }
 
 exports.User = User
+exports.getAllUsers = getAllUsers
 exports.Exercise = Exercise
 exports.createNewUser = createNewUser
 exports.newExerciseEntry = newExerciseEntry
