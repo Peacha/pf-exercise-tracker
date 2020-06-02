@@ -11,6 +11,7 @@ app.route("/").get((req,res)=>{
 	res.sendFile(__dirname+"/views/index.html")
 })
 
+app.use("/api/exercise",require("./routes/users.js"))
 app.use("/api/exercise",require("./routes/new-user.js"))
 app.use("/api/exercise",require("./routes/add-exercise.js"))
 app.use("/api/exercise",require("./routes/query-exercise.js"))

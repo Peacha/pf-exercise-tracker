@@ -53,6 +53,12 @@ const createNewUser = (userName,done)=>{
 	newUser.save((err,data)=>{err ? done(err) : done(null,data)});
 }
 
+// get all users
+
+const getAllUsers = (done)=>{
+	User.find({}).exec((err,data)=>{err ? done(err) : done(null,data)})
+}
+
 //get userID function
 
 //create new exercise function
