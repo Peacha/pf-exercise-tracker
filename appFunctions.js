@@ -61,6 +61,10 @@ const getAllUsers = (done)=>{
 
 //get userID function
 
+const getUserById = (userId,done) =>{
+	User.findById({_id:userId}).exec((err,data)=>{err ? done(err) : done(null,data)})
+}
+
 //create new exercise function
 const newExerciseEntry = (userID,description,date,duration,done)=>{
 	const newExercise = new Exercise({userID:userID,description:description,date:date,duration:duration});
@@ -69,19 +73,16 @@ const newExerciseEntry = (userID,description,date,duration,done)=>{
 
 //query exercise function
 
-const findExercise = (userID,limit,from,to,done)=>{
-	//log?{userId}[&from][&to][&limit]
-	console.log(userID)
-	console.log(limit)
-	console.log(from)
-	console.log(to)
-	Exercise.find({userID:userID,date:{$gte: from,$lt: to }}).limit(limit).exec((err,data)=>{console.log(err);
-		return err ? done(err) : done(null,data)
+const findExercise = (userId,limit,from,to,done)=>{
+
+	Exercise.find({userID:userId,date:{$gte: from,$lt: to }}).populate('userID').limit(limit).exec((err,data)=>{
+		return err ? done(err) : done(null,data.map(e=> ({"userId":e.userID._id,"description":e.description,"duration":e.duration,"date":e.date.toDateString(),"username":e.userID.username}) ))
 	})
 }
 
 exports.User = User
 exports.getAllUsers = getAllUsers
+exports.getUserById = getUserById
 exports.Exercise = Exercise
 exports.createNewUser = createNewUser
 exports.newExerciseEntry = newExerciseEntry
