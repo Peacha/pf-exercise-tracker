@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 mongoose.connect(process.env.MONGO_URI,{useNewUrlParser:true,useUnifiedTopology:true})
 mongoose.set('useCreateIndex', true);
 const schema = mongoose.Schema
@@ -11,7 +12,8 @@ const userSchema = new schema(
 			unique:true,
 			type: String,
 			lowercase: true
-		}
+		},
+		exercises:[{type: mongoose.Schema.Types.ObjectId, ref:'Exercise'}]
 	}
 );
 
@@ -28,7 +30,7 @@ const exerciseSchema = new schema(
 			type:String
 		},
 		date:{
-			type:Date
+			type:Date,
 		},
 		duration:{
 			type:Number,
@@ -65,7 +67,7 @@ const newExerciseEntry = (userId,description,date,duration,done)=>{
 		if (err) done(err);
 		const newExercise = new Exercise({userID:userId,description:description,date:date,duration:duration});
 		newExercise.save((err,data)=>{
-			err ? done(err) : done(null,{"username":doc.username,"description":data.description,"duration":data.duration,"userId":doc._id,"date":data.date.toDateString()})
+			err ? done(err) : done(null,{"username":doc.username,"description":data.description,"duration":data.duration,"_id":doc._id,"date":data.date.toDateString()}) //modified the userID to return userID as this was causing the test to fail!
 		})
 	})
 }
